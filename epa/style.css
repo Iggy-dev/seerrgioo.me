@@ -1,0 +1,53 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.5s;
+    overflow: hidden;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+.moving-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+}
+
+.explode {
+    animation: explode-animation 0.5s forwards;
+}
+
+@keyframes explode-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
