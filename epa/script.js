@@ -145,7 +145,8 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('checkVideoButton').addEventListener('click', function() {
     // Ocultar el botón
     this.style.display = 'none';
-    // Crear la imagen del DVD
+    var audioElement = document.querySelector('audio');
+    audioElement.play()
     createDvdImage();
     setInterval(() => {
         document.body.style.backgroundColor = getNewRandomColor();
