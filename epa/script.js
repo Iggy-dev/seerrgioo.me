@@ -141,14 +141,26 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Escuchar el clic en el botón
-document.getElementById('checkVideoButton').addEventListener('click', function() {
-    // Ocultar el botón
-    this.style.display = 'none';
-    // var audioElement = document.querySelector('audio');
-    // audioElement.play()
-    createDvdImage();
-    setInterval(() => {
-        document.body.style.backgroundColor = getNewRandomColor();
-    }, 500);
+// Espera a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    const audioElement = document.querySelector('audio'); // Selecciona el primer elemento <audio>
+
+    // Escuchar el clic en el botón
+    document.getElementById('checkVideoButton').addEventListener('click', function() {
+        // Ocultar el botón
+        this.style.display = 'none';
+
+        // Reproducir la música
+        audioElement.play().catch(function(error) {
+            console.log('Error al intentar reproducir el audio:', error);
+        });
+
+        // Crear la imagen de DVD
+        createDvdImage();
+
+        // Cambiar el color del fondo
+        setInterval(() => {
+            document.body.style.backgroundColor = getNewRandomColor();
+        }, 500);
+    });
 });
